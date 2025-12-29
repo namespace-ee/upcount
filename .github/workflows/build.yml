@@ -2,10 +2,9 @@ name: "publish"
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'src-tauri/tauri.conf.json'
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   publish-tauri:
@@ -37,7 +36,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: "yarn"
+          cache: "pnpm"
 
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
@@ -50,8 +49,13 @@ jobs:
         with:
           workspaces: "./src-tauri -> target"
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: install frontend dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       
       - name: Save API key to file
         if: matrix.settings.platform == 'macos-latest'
