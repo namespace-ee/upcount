@@ -4,8 +4,8 @@
   "version": "2.0.0-beta.23",
   "identifier": "com.upcount.dev",
   "build": {
-    "beforeBuildCommand": "yarn build",
-    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devUrl": "http://localhost:5173",
     "frontendDist": "../dist"
   },

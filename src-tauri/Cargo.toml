@@ -16,20 +16,20 @@ name = "upcount_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.2.0", features = [] }
+tauri-build = { version = "2.5.3", features = [] }
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0.203", features = ["derive"] }
-tauri = { version = "2.5.1", features = ["rustls-tls"] }
-tauri-plugin-updater = "2.8.1"
-tauri-plugin-dialog = "2.2.2"
-tauri-plugin-process = "2.3.0"
-tauri-plugin-fs = "2.3.0"
-tauri-plugin-opener = "2.2.0"
-tauri-plugin-http = "2.2.0"
+tauri = { version = "2.9.5", features = ["rustls-tls"] }
+tauri-plugin-updater = "2.9.0"
+tauri-plugin-dialog = "2.4.2"
+tauri-plugin-process = "2.3.1"
+tauri-plugin-fs = "2.4.4"
+tauri-plugin-opener = "2.5.2"
+tauri-plugin-http = "2.5.4"
 sqlx = { version = "0.8.6", features = ["runtime-tokio-native-tls", "sqlite", "macros", "migrate"] }
-tokio = { version = "1.45.1", features = ["full"] }
+tokio = { version = "1.48.0", features = ["full"] }
 nanoid = "0.4"
 chrono = { version = "0.4", features = ["serde"] }
 sentry = { version = "0.34", features = ["backtrace", "contexts", "panic", "anyhow"] }
