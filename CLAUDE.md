@@ -15,8 +15,8 @@ Upcount is a cross-platform invoicing application built with Tauri, React, and S
 - **PDF Generation**: @react-pdf/renderer for invoice PDFs
 
 ## Key Technologies
-- Tauri 1.7.1 for desktop app framework
-- React Router 6 for navigation
+- Tauri 2.x for desktop app framework
+- React Router 7 for navigation
 - Jotai for state management with atoms in src/atoms.tsx
 - LinguiJS for i18n with macros for translations
 - SQLite with migrations in src-tauri/migrations/
@@ -24,16 +24,16 @@ Upcount is a cross-platform invoicing application built with Tauri, React, and S
 ## Development Commands
 ```bash
 # Start development server (runs both Tauri and Vite)
-yarn dev
+pnpm dev
 
 # Build for production
-yarn tauri build
+pnpm tauri build
 
 # Lint TypeScript/React code
-yarn lint
+pnpm lint
 
 # Extract translation strings
-yarn extract
+pnpm extract
 ```
 
 ## File Structure

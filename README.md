@@ -51,7 +51,7 @@ If you are interested in adding a language translation to Upcount [please open a
 For developers the following commands are needed to add a language.
 
 ```shell
-yarn extract
+pnpm extract
 ```
 
 Then manually create the new locale file by copying an existing .po file in the locales folder and translating the strings.

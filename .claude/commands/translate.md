@@ -15,7 +15,7 @@ When asked to update translations:
 
 1. **Extract and analyze current translation status**
    ```bash
-   yarn extract
+   pnpm extract
    ```
    This command will:
    - Extract all translatable strings from the source code
@@ -55,7 +55,7 @@ When asked to update translations:
    Fill in the empty msgstr fields with appropriate translations.
 
 7. **Verify completeness**
-   Run `yarn extract` again to confirm all translations are complete and the "Missing" column shows 0 for all languages.
+   Run `pnpm extract` again to confirm all translations are complete and the "Missing" column shows 0 for all languages.
 
 ## Translation Guidelines
 
@@ -131,8 +131,7 @@ After translating:
 ## Tools Integration
 
 The project uses:
-- `yarn extract` - Extract new strings from source code
-- `yarn add-locale [code]` - Add a new language
+- `pnpm extract` - Extract new strings from source code
 - Standard .po editors can be used for manual editing
 
 Remember: Good translations make the software feel native to users. Take care to produce natural, accurate translations that respect the target language's conventions.
