@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "wrangler": "^4.24.3"
+    "wrangler": "^4.59.1"
   }
 }
