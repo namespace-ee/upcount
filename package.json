@@ -37,7 +37,7 @@
     "decimal.js": "^10.5.0",
     "jotai": "2.16.1",
     "jotai-devtools": "0.13.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "nanoid": "5.1.6",
     "path-to-regexp": "8.3.0",
     "react": "^18",
