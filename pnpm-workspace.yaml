@@ -1,0 +1,4 @@
+packages:
+  - 'website'
+overrides:
+  jsondiffpatch@<0.7.2: '>=0.7.2'
