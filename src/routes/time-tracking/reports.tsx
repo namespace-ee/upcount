@@ -23,6 +23,10 @@ import groupBy from "lodash/groupBy";
 import sumBy from "lodash/sumBy";
 import sortBy from "lodash/sortBy";
 import filter from "lodash/filter";
+import { TimeReportPDF } from "src/components/time-entries/time-report-pdf";
+import { pdf } from "@react-pdf/renderer";
+import { save } from "@tauri-apps/plugin-dialog";
+import { writeFile } from "@tauri-apps/plugin-fs";
 
 import { timeEntriesAtom } from "src/atoms/time-tracking";
 import { clientsAtom } from "src/atoms/client";
@@ -171,7 +175,33 @@ export default function TimeTrackingReports() {
         </Col>
         <Col span={12} style={{ display: "flex", justifyContent: "flex-end" }}>
           <Space style={{ alignItems: "start" }}>
-            <Button type="default" style={{ marginBottom: 10 }} disabled>
+            <Button 
+                type="default" 
+                style={{ marginBottom: 10 }} 
+                onClick={async () => {
+                  const client = selectedClient !== "all" 
+                    ? clients.find((c) => c.id === selectedClient) 
+                    : undefined;
+
+                  const filePath = await save({
+                    defaultPath: `time-report-${dateRange[0].format('YYYY-MM-DD')}-to-${dateRange[1].format('YYYY-MM-DD')}.pdf`,
+                  });
+
+                  if (!filePath) return;
+
+                  const document = (
+                    <TimeReportPDF 
+                      dateRange={dateRange} 
+                      tableData={tableData} 
+                      client={client} 
+                  />
+                );
+
+                const blob = await pdf(document).toBlob();
+                const contents = new Uint8Array(await blob.arrayBuffer());
+                await writeFile(filePath, contents);
+              }}
+              >
               <Trans>Export</Trans>
             </Button>
           </Space>
