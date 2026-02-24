@@ -386,7 +386,7 @@ const InvoicePDF = ({
               <Text style={[styles.text, { textAlign: "center" }]}>Reg. nr {organization.registration_number}</Text>
             )}
             {organization.vatin && (
-              <Text style={[styles.text, { textAlign: "right" }]}>VATIN {organization.vatin}</Text>
+              <Text style={[styles.text, { textAlign: "right" }]}><Trans>VATIN</Trans> {organization.vatin}</Text>
             )}
           </View>
         </Page>

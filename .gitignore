@@ -35,3 +35,6 @@ dist-ssr
 *.sw?
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Generated files in src-tauri 
+gen/
