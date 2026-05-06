@@ -14,21 +14,24 @@ jobs:
     name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: 'website/package-lock.json'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
-        working-directory: ./website
+        run: pnpm install --frozen-lockfile
 
       - name: Build website
-        run: npm run build
+        run: pnpm build
         working-directory: ./website
 
       - name: Deploy to Cloudflare Pages
