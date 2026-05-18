@@ -32,6 +32,11 @@ jobs:
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
         # webkitgtk 4.1 is for Tauri v2.
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+
       - name: setup node
         uses: actions/setup-node@v6
         with:
@@ -48,11 +53,6 @@ jobs:
         uses: swatinem/rust-cache@v2
         with:
           workspaces: "./src-tauri -> target"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
 
       - name: install frontend dependencies
         run: pnpm install --frozen-lockfile
